@@ -1,0 +1,530 @@
+/* Основные настройки */
+:root {
+    --bg: #0b1020;
+    --bg-soft: #111a2e;
+    --card: #121d33;
+    --text: #e8eefc;
+    --muted: #a4b1cc;
+    --accent: #69a7ff;
+    --accent-strong: #8bc0ff;
+    --border: rgba(164, 190, 230, 0.17);
+    --shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(circle at 85% 5%, rgba(64, 112, 190, 0.16), transparent 30rem),
+        var(--bg);
+    color: var(--text);
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+a {
+    color: var(--accent-strong);
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container,
+main,
+.header-inner,
+.footer-inner {
+    width: min(1100px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+/* Шапка и навигация */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--border);
+    background: rgba(11, 16, 32, 0.88);
+    backdrop-filter: blur(16px);
+}
+
+.header-inner {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.logo,
+.header .logo {
+    color: var(--text);
+    font-size: 1.05rem;
+    font-weight: 750;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.navigation a {
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.navigation a:hover {
+    color: var(--text);
+}
+
+/* Первый экран */
+.hero {
+    width: min(1100px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: clamp(76px, 12vw, 140px) 0 88px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 20px;
+    color: var(--accent-strong);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.accent-dot {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 18px rgba(105, 167, 255, 0.8);
+}
+
+.hero h1 {
+    max-width: 850px;
+    margin: 0;
+    font-size: clamp(2.7rem, 7vw, 5.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.065em;
+}
+
+.hero h1 span,
+.accent {
+    color: var(--accent-strong);
+}
+
+.hero p {
+    max-width: 720px;
+    margin: 26px 0 0;
+    color: var(--muted);
+    font-size: clamp(1.05rem, 2vw, 1.22rem);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+}
+
+/* Кнопки */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 11px 18px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.035);
+    font-weight: 650;
+}
+
+.button:hover {
+    border-color: rgba(139, 192, 255, 0.55);
+    background: rgba(105, 167, 255, 0.1);
+}
+
+.button-primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #081326;
+}
+
+.button-primary:hover {
+    background: var(--accent-strong);
+    color: #081326;
+}
+
+/* Общие секции */
+.section {
+    width: min(1100px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 76px 0;
+    border-top: 1px solid var(--border);
+}
+
+.section-heading {
+    max-width: 760px;
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    margin: 0 0 16px;
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+    line-height: 1.2;
+    letter-spacing: -0.045em;
+}
+
+.section p {
+    color: var(--muted);
+}
+
+.section-description {
+    max-width: 760px;
+    margin: 0;
+    color: var(--muted);
+}
+
+/* Карточки и сетки */
+.grid,
+.interest-grid,
+.skills-grid,
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.card,
+.interest-card,
+.skill-card,
+.project-card,
+.project-placeholder,
+.contact-card,
+.timeline-item {
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(18, 29, 51, 0.92), rgba(14, 22, 40, 0.92));
+    box-shadow: var(--shadow);
+}
+
+.card h3,
+.interest-card h3,
+.skill-card h3,
+.project-card h3,
+.project-placeholder h3,
+.contact-card h3,
+.timeline-item h3 {
+    margin: 0 0 10px;
+    font-size: 1.15rem;
+    line-height: 1.4;
+}
+
+.card p,
+.interest-card p,
+.skill-card p,
+.project-card p,
+.project-placeholder p,
+.contact-card p,
+.timeline-item p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.card-number,
+.project-number {
+    display: block;
+    margin-bottom: 16px;
+    color: var(--accent-strong);
+    font-size: 0.82rem;
+    font-weight: 750;
+    letter-spacing: 0.1em;
+}
+
+.card-tag,
+.tag {
+    display: inline-flex;
+    margin: 14px 7px 0 0;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+/* Обо мне и образование */
+.about-layout {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.about-text {
+    max-width: 720px;
+}
+
+.about-facts {
+    display: grid;
+    gap: 12px;
+}
+
+.fact {
+    padding: 16px 18px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.fact strong {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.fact span {
+    color: var(--muted);
+    font-size: 0.93rem;
+}
+
+/* Навыки */
+.skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.skill-card ul,
+.project-card ul,
+.interest-card ul {
+    margin: 12px 0 0;
+    padding-left: 20px;
+    color: var(--muted);
+}
+
+.skill-card li,
+.project-card li,
+.interest-card li {
+    margin: 5px 0;
+}
+
+/* Учебный путь */
+.timeline {
+    position: relative;
+    display: grid;
+    gap: 16px;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-date {
+    display: inline-block;
+    margin-bottom: 9px;
+    color: var(--accent-strong);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* Проекты */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.project-topline,
+.project-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 10px;
+    border: 1px solid rgba(105, 167, 255, 0.3);
+    border-radius: 999px;
+    color: var(--accent-strong);
+    font-size: 0.8rem;
+}
+
+.project-footer {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+}
+
+.text-link {
+    font-weight: 700;
+}
+
+/* Контакты */
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.contact-card a {
+    overflow-wrap: anywhere;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+/* Подвал */
+.footer {
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 24px 0;
+    font-size: 0.88rem;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Адаптация под телефоны и планшеты */
+@media (max-width: 760px) {
+    .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px 0;
+    }
+
+    .navigation {
+        justify-content: flex-start;
+        gap: 10px 16px;
+    }
+
+    .navigation a {
+        font-size: 0.85rem;
+    }
+
+    .hero {
+        padding-top: 72px;
+        padding-bottom: 64px;
+    }
+
+    .section {
+        padding: 56px 0;
+    }
+
+    .grid,
+    .interest-grid,
+    .skills-grid,
+    .project-grid,
+    .about-layout,
+    .contact {
+        grid-template-columns: 1fr;
+    }
+
+    .card,
+    .interest-card,
+    .skill-card,
+    .project-card,
+    .project-placeholder,
+    .contact-card,
+    .timeline-item {
+        padding: 20px;
+    }
+
+    .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+
+/* Ненавязчивая анимация появления блоков при прокрутке */
+.will-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.will-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.copy-email-button {
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .will-reveal,
+    .will-reveal.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
